@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functional refactoring</title>
+    <link rel="stylesheet" href="app/style/style.css" />
+  </head>
+  <body>
+    <div v-scope id="app">
+      <div class="cart">
+        <div class="cart-info">
+          <div class="total">Total: <span id="total" data-test="total"></span></div>
+          <div class="tax">Including tax: <span id="tax" data-test="tax"></span></div>
+          <div class="shipping">Shipping: <span id="shipping" data-test="shipping"></span></div>
+        </div>
+        <img src="app/assets/cart.svg" alt="cart icon" width="80" height="80" />
+      </div>
+      <ul>
+        <li v-for="item in items">
+          <div class="display" :data-item="item.name">
+            <span class="item-name">{{ item.name }}</span>
+            <img :src="`app/assets/${item.src}`" alt="pull" width="200" height="200" />
+            <span class="item-price">{{ item.price }}</span>
+
+            <div class="icon" :data-test="`shipping-${item.name}`">
+              <img src="app/assets/free_shipping.svg" alt="free shipping icon" width="65" height="65" />
+            </div>
+          </div>
+          <button @click="addItem(item)" :data-test="`btn-${item.name}`">+ Add</button>
+        </li>
+      </ul>
+    </div>
+
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/petite-vue?module';
+      import { addToCart } from './script.js';
+      import items from './app/items.js';
+
+      createApp({
+        items,
+
+        addItem(item) {
+          const { name, price } = item;
+          addToCart(name, price);
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

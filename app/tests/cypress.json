@@ -1,0 +1,6 @@
+{
+  "pluginsFile": "app/tests/plugins/index.js",
+  "baseUrl": "http://localhost:8080",
+  "video": false,
+  "screenshotOnRunFailure": false
+}

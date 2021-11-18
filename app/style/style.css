@@ -1,0 +1,94 @@
+@import 'reset.css';
+
+body {
+  padding: 36px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cart {
+  width: 300px;
+  margin-left: auto;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid black;
+  border-radius: 12px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  margin-bottom: 16px;
+}
+
+.tax,
+.shipping {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.item-price::before {
+  content: '€';
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  width: 250px;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid black;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+li:not(:last-child) {
+  margin-right: 24px;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 12px;
+}
+
+.icon {
+  visibility: hidden;
+  opacity: 0.8;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  transform: rotate3d(0, 0, 1, 15deg);
+}
+
+.icon.free-shipping {
+  visibility: visible;
+}
+
+button {
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 12px;
+  cursor: pointer;
+  color: green;
+}
