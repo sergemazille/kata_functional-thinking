@@ -9,7 +9,10 @@ let freeShippingThreshold = Data.FREE_SHIPPING_THRESHOLD;
 let shippingCost = Data.SHIPPING_COST;
 let taxRate = Data.TAX_RATE;
 
-// keep the export keyword for this function
+// This function is the entry point of this feature.
+// It is called when a user clicks on an item to add it to the cart.
+// You have to keep the `export` keyword as it creates a bridge with the UI,
+// but feel free to change what's inside the function.
 export function addToCart(name, price) {
   cart.push({ name, price });
 
