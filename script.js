@@ -44,7 +44,7 @@ function updateShippingDom() {
 function updateShippingIcons() {
   let items = Dom.getItems();
 
-  if (items.length > 1 && shippingCost === 0) {
+  if (cartTotal > 0 && shippingCost === 0) {
     Dom.hideAllFreeShippingIcons();
 
     return;
