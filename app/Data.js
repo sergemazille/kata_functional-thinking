@@ -11,6 +11,10 @@ export class Data {
   }
 
   static get SHIPPING_COST() {
-    return 10
+    return 10;
+  }
+
+  static get TAX_RATE() {
+    return 0.2;
   }
 }

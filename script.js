@@ -1,10 +1,12 @@
 // This file needs some refactoring...
 
+import { Data } from './app/Data.js';
 import { Dom } from './app/Dom.js';
 
-let cart = [];
+let cart = Data.cart;
 let cartTotal = 0;
-let shippingCost = 10;
+let shippingCost = Data.SHIPPING_COST;
+let taxRate = Data.TAX_RATE;
 
 // keep the export keyword for this function
 export function addToCart(name, price) {
@@ -28,7 +30,7 @@ function updateCartTotal() {
 }
 
 function updateTaxDom() {
-  Dom.updateTax(cartTotal * 0.2);
+  Dom.updateTax(cartTotal * taxRate);
 }
 
 function updateShippingDom() {
