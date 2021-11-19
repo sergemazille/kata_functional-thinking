@@ -17,6 +17,10 @@ export function addToCart(name, price) {
   cart.push({ name, price });
 
   updateCartTotal();
+  updateCardTotalDom();
+  updateShippingDom();
+  updateShippingIcons();
+  updateTaxDom();
 }
 
 function updateCartTotal() {
@@ -26,11 +30,6 @@ function updateCartTotal() {
     let item = cart[i];
     cartTotal += item.price;
   }
-
-  updateCardTotalDom();
-  updateShippingDom();
-  updateShippingIcons();
-  updateTaxDom();
 }
 
 function updateTaxDom() {
