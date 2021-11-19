@@ -28,13 +28,6 @@ export class Dom {
     iconEl.classList.add('free-shipping');
   }
 
-  static hideFreeShippingIconFor(item) {
-    const itemEl = document.querySelector(`[data-item="${item.name}"]`);
-    const iconEl = itemEl.querySelector('.icon');
-
-    iconEl.classList.remove('free-shipping');
-  }
-
   static hideAllFreeShippingIcons() {
     const iconEls = document.querySelectorAll('.icon');
 

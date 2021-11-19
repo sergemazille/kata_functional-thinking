@@ -57,8 +57,6 @@ function updateShippingIcons() {
 
     if (item.price + cartTotal >= 200) {
       Dom.showFreeShippingIconFor(item);
-    } else {
-      Dom.hideFreeShippingIconFor(item);
     }
   }
 }
