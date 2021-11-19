@@ -9,4 +9,8 @@ export class Data {
   static set cart(cart) {
     Data.cart = cart;
   }
+
+  static get SHIPPING_COST() {
+    return 10
+  }
 }
