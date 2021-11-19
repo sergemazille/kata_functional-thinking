@@ -5,6 +5,7 @@ import { Dom } from './app/Dom.js';
 
 let cart = Data.cart;
 let cartTotal = 0;
+let freeShippingThreshold = Data.FREE_SHIPPING_THRESHOLD;
 let shippingCost = Data.SHIPPING_COST;
 let taxRate = Data.TAX_RATE;
 
@@ -34,7 +35,7 @@ function updateTaxDom() {
 }
 
 function updateShippingDom() {
-  if (cartTotal >= 200) {
+  if (cartTotal >= freeShippingThreshold) {
     shippingCost = 0;
   } else {
     shippingCost = 10;
@@ -55,7 +56,7 @@ function updateShippingIcons() {
   for (let i = 0; i < items.length; i++) {
     let item = items[i];
 
-    if (item.price + cartTotal >= 200) {
+    if (item.price + cartTotal >= freeShippingThreshold) {
       Dom.showFreeShippingIconFor(item);
     }
   }

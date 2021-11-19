@@ -17,4 +17,8 @@ export class Data {
   static get TAX_RATE() {
     return 0.2;
   }
+
+  static get FREE_SHIPPING_THRESHOLD() {
+    return 200;
+  }
 }
