@@ -12,15 +12,15 @@ let taxRate = Data.TAX_RATE;
 // This function is the entry point of this feature.
 // It is called when a user clicks on an item to add it to the cart.
 // You have to keep the `export` keyword as it creates a bridge with the UI,
-// but feel free to change what's inside the function.
+// but feel free to change whatever you feel needs to be changed inside the function.
 export function addToCart(name, price) {
   cart.push({ name, price });
 
   updateCartTotal();
   updateCardTotalDom();
+  updateTaxDom();
   updateShippingDom();
   updateShippingIcons();
-  updateTaxDom();
 }
 
 function updateCartTotal() {
