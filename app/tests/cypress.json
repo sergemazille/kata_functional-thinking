@@ -1,5 +1,5 @@
 {
-  "pluginsFile": "app/tests/plugins/index.js",
+  "pluginsFile": "app/tests/plugins/index.cjs",
   "baseUrl": "http://localhost:8080",
   "video": false,
   "screenshotOnRunFailure": false

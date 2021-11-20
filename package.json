@@ -1,6 +1,7 @@
 {
   "name": "functional",
   "version": "1.0.0",
+  "type": "module",
   "description": "The code in `script.js` is structured around global states. The goal is to keep the behavior while getting rid of everything that is implicit.",
   "main": "script.js",
   "scripts": {
