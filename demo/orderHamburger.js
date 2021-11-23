@@ -1,35 +1,43 @@
 import { INGREDIENT_PRICES } from './prices.js';
 
-let hamburger = {};
-let orderTotal = 0;
-
 // Entry point
 // Client order example: { meat: 'beef', supplements: ['tomato', 'onion'] }
 function orderHamburger(clientOrder) {
-  composeHamburger(clientOrder);
-  updateTotal();
-
+  const hamburger = composeHamburger(clientOrder);
+  const hamburgerIngredients = getHamburgerIngredients(hamburger);
+  const ingredientPrices = getIngredientPrices(INGREDIENT_PRICES)
+  const orderTotal = calculateOrderTotal(hamburgerIngredients, ingredientPrices);
+  
   return { hamburger, orderTotal };
 }
 
 function composeHamburger(clientOrder) {
-  hamburger = {
+  return {
     base: ['bread', 'lettuce', 'cheddar'],
     meat: clientOrder.meat,
     supplements: clientOrder.supplements,
   };
 }
 
-function updateTotal() {
-  const baseSubTotal = INGREDIENT_PRICES.base.bread + INGREDIENT_PRICES.base.lettuce + INGREDIENT_PRICES.base.cheddar;
-  const meatSubTotal = INGREDIENT_PRICES.meat[hamburger.meat];
-  let supplementsSubTotal = 0;
+function calculateOrderTotal(hamburgerIngredients, ingredientPrices) {
+  return hamburgerIngredients.reduce((acc, ingredient) => {
+    return (acc += ingredientPrices[ingredient]);
+  }, 0);
+}
 
-  hamburger.supplements.forEach(ingredient => {
-    supplementsSubTotal += INGREDIENT_PRICES.supplements[ingredient];
-  });
+function getHamburgerIngredients(hamburger) {
+  return Object.values(hamburger)
+    .map(value => value)
+    .flatMap(value => value);
+}
 
-  orderTotal = baseSubTotal + meatSubTotal + supplementsSubTotal;
+function getIngredientPrices(prices) {
+  return Object.values(prices).reduce((acc, current) => {
+    return {
+      ...acc,
+      ...current
+    }
+  }, {})
 }
 
 // test ($> node demo/orderHamburger.js)
