@@ -17,7 +17,7 @@ export function addToCart(name, price) {
   cart.push({ name, price });
 
   updateCartTotal();
-  updateCardTotalDom();
+  updateCartTotalDom();
   updateTaxDom();
   updateShippingDom();
   updateShippingIcons();
@@ -64,6 +64,6 @@ function updateShippingIcons() {
   }
 }
 
-function updateCardTotalDom() {
+function updateCartTotalDom() {
   Dom.updateCartTotal(cartTotal);
 }
